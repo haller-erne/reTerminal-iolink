@@ -15,7 +15,7 @@ This project enables reTerminal DM devices from Seeed Studio to be equipped with
 - reTerminal DM by Seeed Studio
 - STM32 Microcontroller STM32F401
 - IO-Link transceiver IC HMT7742
-- 
+  
 ## Software Requirements
 
 ## Installation
@@ -26,11 +26,10 @@ Compile the project and upload the firmware to the STM32 microcontroller.
 2. Hardware Connections
 Connect the STM32 microcontroller to the reTerminal DM via SPI in full duplex mode.
 Ensure proper connections between the SPI pins (MOSI, MISO, SCK, and CS) on both devices.
-Connect the IO-Link transceiver to the STM32 as per the circuit diagram provided in the /docs folder.
+Connect the IO-Link transceiver to the STM32 as per the circuit diagram provided in the schematic folder.
 3. Configure SPI Communication
 Initialize SPI on the STM32 in full duplex mode to facilitate communication with reTerminal DM.
 Ensure that the SPI clock speed and other settings are configured according to the specifications of both the STM32 and reTerminal DM.
 4. Configure IO-Link Master
 Use the provided configuration files to set up the IO-Link master parameters.
 Ensure that the IO-Link master is correctly configured to communicate with your specific IO-Link devices.
-Usage
