@@ -5,7 +5,7 @@ IO-Link device for reTerminal - can also be used as a RaspBerryPI-HAT
 This project enables reTerminal DM devices from Seeed Studio to be equipped with the IO-Link protocol using an STM32 microcontroller. The integration allows reTerminal DM to communicate with industrial sensors and actuators through the standardized IO-Link protocol, facilitating seamless connectivity in industrial automation systems.
 
 ## Features
-- IO-Link Master Integration: Converts reTerminal DM into an IO-Link master device.
+- IO-Link Slave Integration: Converts reTerminal DM into an IO-Link slave device.
 - Seamless Communication: Ensures reliable data exchange between reTerminal DM and IO-Link enabled devices.
 - STM32 Microcontroller: Utilizes STM32 for efficient processing and communication.
 - SPI Full Duplex Communication: Establishes a reliable SPI connection between the STM32 and reTerminal DM in full duplex mode.
