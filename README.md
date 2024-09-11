@@ -17,7 +17,9 @@ This project enables reTerminal DM devices from Seeed Studio to be equipped with
 - IO-Link transceiver IC HMT7742
   
 ## Software Requirements
--
+- STM32CubeIDE or any other suitable IDE for STM32 development
+- STM32 HAL library
+- IO-Link stack (if applicable)
 
 ## Installation
 1. Set Up Development Environment
