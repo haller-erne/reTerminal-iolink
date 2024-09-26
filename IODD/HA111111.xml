@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Changes:
+
+V0.1: 2023-0727
+- temporary names for customer/project
+- temporary ids for vendor/device
+
+-->
+<IODevice
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.io-link.com/IODD/2010/10"
+  xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd"
+>
+
+  <DocumentInfo 
+    version="V0.1" 
+    releaseDate="2024-03-08" 
+    copyright="Copyright 2024 Haller+Erne"
+  />
+
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+
+  <ProfileBody>
+    <DeviceIdentity 
+      vendorId="1858"
+      vendorName="Haller+Erne" 
+      deviceId="1118481">
+      <!-- device id in decimal notation    hex:111111   = dec: 1118481 -->
+      
+      <VendorText textId="TI_VendorText"/>
+      <VendorUrl textId="TI_VendorUrl"/>
+      <VendorLogo name="HallerErne-logo.png"/>
+      <DeviceName textId="TI_DeviceName"/>
+      <DeviceFamily textId="TI_DeviceFamily"/>
+      <DeviceVariantCollection>
+        <DeviceVariant 
+          productId="IOLink"
+          deviceSymbol="HallerErne-IOLink-pic.png"
+          deviceIcon="HallerErne-IOLink-icon.png"
+        >
+          <Name textId="TI_Name"/>
+          <Description textId="TI_Description"/>
+        </DeviceVariant>
+
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+
+	<DeviceFunction>
+		<Features blockParameter="false" dataStorage="true" /> 
+			<!-- Type Definitions -->
+			<DatatypeCollection>
+
+				<Datatype id="DT_ProcessDataIn8"  xsi:type="UIntegerT"  bitLength="8"></Datatype>				
+				<Datatype id="DT_ProcessDataOut8" xsi:type="UIntegerT"  bitLength="8"></Datatype>	
+				
+				
+
+		
+				<!-- Process Data Type -->
+<!--				<Datatype id="DT_ProcessDataIn" xsi:type="UIntegerT" bitLength="8" />
+				    <Datatype id="DT_ProcessDataOut" xsi:type="UIntegerT" bitLength="8" />
+-->
+			</DatatypeCollection>
+			<!-- Variables -->
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1" />
+				<StdVariableRef id="V_VendorName" />
+				<StdVariableRef id="V_ProductName" />
+				<StdVariableRef id="V_ProductID" />
+				<StdVariableRef id="V_SystemCommand">
+					<StdSingleValueRef value="131" />
+					<StdSingleValueRef value="129" />
+				</StdVariableRef>
+				<StdVariableRef id="V_FirmwareRevision" defaultValue="V1.3.1"/>
+				<StdVariableRef id="V_HardwareRevision" defaultValue="A"/>
+				<StdVariableRef id="V_ApplicationSpecificTag" />
+				<Variable id="V_DemoParamOutput" accessRights="wo" index="64" modifiesOtherVariables="true">
+					<Datatype xsi:type="UIntegerT" bitLength="8"/>
+					<Name textId="TN_DemoParamOutput"/>
+				</Variable>
+				<Variable id="V_DemoParamInput" accessRights="ro" index="65">
+					<Datatype xsi:type="UIntegerT" bitLength="8"/>
+					<Name textId="TN_DemoParamInput"/>
+				</Variable>
+			</VariableCollection>
+			
+			
+			
+			<!-- Process Data -->
+			<ProcessDataCollection>
+			 <ProcessData id="PD_ProcessData">							
+			  <ProcessDataIn id="PD_ProcessDataIn" bitLength="256">
+						<Datatype xsi:type="RecordT" bitLength="256">
+							
+				    <RecordItem subindex="1" bitOffset="248"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_01"/><Description textId="TD_PI_X_PDin_IN_01"/></RecordItem>
+					<RecordItem subindex="2" bitOffset="240"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_02"/><Description textId="TD_PI_X_PDin_IN_02"/></RecordItem>
+					<RecordItem subindex="3" bitOffset="232"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_03"/><Description textId="TD_PI_X_PDin_IN_03"/></RecordItem>
+					<RecordItem subindex="4" bitOffset="224"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_04"/><Description textId="TD_PI_X_PDin_IN_04"/></RecordItem>
+					<RecordItem subindex="5" bitOffset="216"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_05"/><Description textId="TD_PI_X_PDin_IN_05"/></RecordItem>
+					<RecordItem subindex="6" bitOffset="208"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_06"/><Description textId="TD_PI_X_PDin_IN_06"/></RecordItem>
+					<RecordItem subindex="7" bitOffset="200"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_07"/><Description textId="TD_PI_X_PDin_IN_07"/></RecordItem>
+					<RecordItem subindex="8" bitOffset="192"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_08"/><Description textId="TD_PI_X_PDin_IN_08"/></RecordItem>
+					<RecordItem subindex="9" bitOffset="184"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_09"/><Description textId="TD_PI_X_PDin_IN_09"/></RecordItem>
+					<RecordItem subindex="10" bitOffset="176"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_10"/><Description textId="TD_PI_X_PDin_IN_10"/></RecordItem>
+					<RecordItem subindex="11" bitOffset="168"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_11"/><Description textId="TD_PI_X_PDin_IN_11"/></RecordItem>					
+					<RecordItem subindex="12" bitOffset="160"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_12"/><Description textId="TD_PI_X_PDin_IN_12"/></RecordItem>
+					<RecordItem subindex="13" bitOffset="152"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_13"/><Description textId="TD_PI_X_PDin_IN_13"/></RecordItem>
+					<RecordItem subindex="14" bitOffset="144"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_14"/><Description textId="TD_PI_X_PDin_IN_14"/></RecordItem>
+					<RecordItem subindex="15" bitOffset="136"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_15"/><Description textId="TD_PI_X_PDin_IN_15"/></RecordItem>					
+					<RecordItem subindex="16" bitOffset="128"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_16"/><Description textId="TD_PI_X_PDin_IN_16"/></RecordItem>
+					<RecordItem subindex="17" bitOffset="120"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_17"/><Description textId="TD_PI_X_PDin_IN_17"/></RecordItem>
+					<RecordItem subindex="18" bitOffset="112"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_18"/><Description textId="TD_PI_X_PDin_IN_18"/></RecordItem>
+					<RecordItem subindex="19" bitOffset="104"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_19"/><Description textId="TD_PI_X_PDin_IN_19"/></RecordItem>					
+					<RecordItem subindex="20" bitOffset="96"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_20"/><Description textId="TD_PI_X_PDin_IN_20"/></RecordItem>
+					<RecordItem subindex="21" bitOffset="88"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_21"/><Description textId="TD_PI_X_PDin_IN_21"/></RecordItem>
+					<RecordItem subindex="22" bitOffset="80"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_22"/><Description textId="TD_PI_X_PDin_IN_22"/></RecordItem>
+					<RecordItem subindex="23" bitOffset="72"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_23"/><Description textId="TD_PI_X_PDin_IN_23"/></RecordItem>					
+					<RecordItem subindex="24" bitOffset="64"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_24"/><Description textId="TD_PI_X_PDin_IN_24"/></RecordItem>
+					<RecordItem subindex="25" bitOffset="56"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_25"/><Description textId="TD_PI_X_PDin_IN_25"/></RecordItem>
+					<RecordItem subindex="26" bitOffset="48"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_26"/><Description textId="TD_PI_X_PDin_IN_26"/></RecordItem>
+					<RecordItem subindex="27" bitOffset="40"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_27"/><Description textId="TD_PI_X_PDin_IN_27"/></RecordItem>					
+					<RecordItem subindex="28" bitOffset="32"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_28"/><Description textId="TD_PI_X_PDin_IN_28"/></RecordItem>
+					<RecordItem subindex="29" bitOffset="24"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_29"/><Description textId="TD_PI_X_PDin_IN_29"/></RecordItem>
+					<RecordItem subindex="30" bitOffset="16"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_30"/><Description textId="TD_PI_X_PDin_IN_30"/></RecordItem>
+					<RecordItem subindex="31" bitOffset="8"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_31"/><Description textId="TD_PI_X_PDin_IN_31"/></RecordItem>
+					<RecordItem subindex="32" bitOffset="0"><DatatypeRef datatypeId="DT_ProcessDataIn8"/><Name textId="TN_PI_X_PDin_IN_32"/><Description textId="TD_PI_X_PDin_IN_32"/></RecordItem>
+
+					<!-- ... -->
+				</Datatype>
+				<Name textId="TI_ProcessDataIn" />
+			  </ProcessDataIn>
+
+			  <ProcessDataOut id="PD_ProcessDataOut" bitLength="256">
+				<Datatype xsi:type="RecordT" bitLength="256">
+
+					<RecordItem subindex="1" bitOffset="248"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_01"/><Description textId="TD_PO_X_PDout_OUT_01"/></RecordItem>
+					<RecordItem subindex="2" bitOffset="240"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_02"/><Description textId="TD_PO_X_PDout_OUT_02"/></RecordItem>
+					<RecordItem subindex="3" bitOffset="232"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_03"/><Description textId="TD_PO_X_PDout_OUT_03"/></RecordItem>
+					<RecordItem subindex="4" bitOffset="224"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_04"/><Description textId="TD_PO_X_PDout_OUT_04"/></RecordItem>
+					<RecordItem subindex="5" bitOffset="216"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_05"/><Description textId="TD_PO_X_PDout_OUT_05"/></RecordItem>
+					<RecordItem subindex="6" bitOffset="208"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_06"/><Description textId="TD_PO_X_PDout_OUT_06"/></RecordItem>
+					<RecordItem subindex="7" bitOffset="200"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_07"/><Description textId="TD_PO_X_PDout_OUT_07"/></RecordItem>
+					<RecordItem subindex="8" bitOffset="192"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_08"/><Description textId="TD_PO_X_PDout_OUT_08"/></RecordItem>
+					<RecordItem subindex="9" bitOffset="184"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_09"/><Description textId="TD_PO_X_PDout_OUT_09"/></RecordItem>
+					<RecordItem subindex="10" bitOffset="176"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_10"/><Description textId="TD_PO_X_PDout_OUT_10"/></RecordItem>
+					<RecordItem subindex="11" bitOffset="168"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_11"/><Description textId="TD_PO_X_PDout_OUT_11"/></RecordItem>
+					<RecordItem subindex="12" bitOffset="160"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_12"/><Description textId="TD_PO_X_PDout_OUT_12"/></RecordItem>
+					<RecordItem subindex="13" bitOffset="152"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_13"/><Description textId="TD_PO_X_PDout_OUT_13"/></RecordItem>
+					<RecordItem subindex="14" bitOffset="144"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_14"/><Description textId="TD_PO_X_PDout_OUT_14"/></RecordItem>
+					<RecordItem subindex="15" bitOffset="136"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_15"/><Description textId="TD_PO_X_PDout_OUT_15"/></RecordItem>
+					<RecordItem subindex="16" bitOffset="128"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_16"/><Description textId="TD_PO_X_PDout_OUT_16"/></RecordItem>
+					<RecordItem subindex="17" bitOffset="120"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_17"/><Description textId="TD_PO_X_PDout_OUT_17"/></RecordItem>
+					<RecordItem subindex="18" bitOffset="112"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_18"/><Description textId="TD_PO_X_PDout_OUT_18"/></RecordItem>
+					<RecordItem subindex="19" bitOffset="104"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_19"/><Description textId="TD_PO_X_PDout_OUT_19"/></RecordItem>
+					<RecordItem subindex="20" bitOffset="96"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_20"/><Description textId="TD_PO_X_PDout_OUT_20"/></RecordItem>
+					<RecordItem subindex="21" bitOffset="88"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_21"/><Description textId="TD_PO_X_PDout_OUT_21"/></RecordItem>
+					<RecordItem subindex="22" bitOffset="80"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_22"/><Description textId="TD_PO_X_PDout_OUT_22"/></RecordItem>
+					<RecordItem subindex="23" bitOffset="72"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_23"/><Description textId="TD_PO_X_PDout_OUT_23"/></RecordItem>
+    				<RecordItem subindex="24" bitOffset="64"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_24"/><Description textId="TD_PO_X_PDout_OUT_24"/></RecordItem>
+					<RecordItem subindex="25" bitOffset="56"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_25"/><Description textId="TD_PO_X_PDout_OUT_25"/></RecordItem>
+					<RecordItem subindex="26" bitOffset="48"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_26"/><Description textId="TD_PO_X_PDout_OUT_26"/></RecordItem>
+					<RecordItem subindex="27" bitOffset="40"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_27"/><Description textId="TD_PO_X_PDout_OUT_27"/></RecordItem>
+					<RecordItem subindex="28" bitOffset="32"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_28"/><Description textId="TD_PO_X_PDout_OUT_28"/></RecordItem>
+					<RecordItem subindex="29" bitOffset="24"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_29"/><Description textId="TD_PO_X_PDout_OUT_29"/></RecordItem>
+					<RecordItem subindex="30" bitOffset="16"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_30"/><Description textId="TD_PO_X_PDout_OUT_30"/></RecordItem>
+					<RecordItem subindex="31" bitOffset="8"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_31"/><Description textId="TD_PO_X_PDout_OUT_31"/></RecordItem>
+					<RecordItem subindex="32" bitOffset="0"><DatatypeRef datatypeId="DT_ProcessDataOut8"/><Name textId="TN_PO_X_PDout_OUT_32"/><Description textId="TD_PO_X_PDout_OUT_32"/></RecordItem>
+					<!-- ... -->
+				
+				</Datatype>
+				<Name textId="TI_ProcessDataOut" />
+			  </ProcessDataOut>
+			 </ProcessData>
+			</ProcessDataCollection>
+			<!-- ErrorTypeCollection -->
+			<!-- EventCollection -->
+			<EventCollection>
+				<StdEventRef code="0" />
+			</EventCollection>
+			<!-- User Interface -->
+			<UserInterface>
+				<MenuCollection>
+					<!-- ===================== IDENTIFICATION MENU ==================  -->
+					<Menu id="ME_Ident">
+						<RecordItemRef variableId="V_DirectParameters_1" subindex="8" />
+						<!--Vendor ID 1-->
+						<RecordItemRef variableId="V_DirectParameters_1" subindex="9" />
+						<!--Vendor ID 2-->
+						<RecordItemRef variableId="V_DirectParameters_1" subindex="10" />
+						<!--Device ID 1-->
+						<RecordItemRef variableId="V_DirectParameters_1" subindex="11" />
+						<!--Device ID 2-->
+						<RecordItemRef variableId="V_DirectParameters_1" subindex="12" />
+						<!--Device ID 3-->
+						<VariableRef variableId="V_ApplicationSpecificTag" />
+					</Menu>
+					<Menu id="ME_Param">
+						<MenuRef menuId="ME_Direct_Parameters"></MenuRef>
+					</Menu>
+					<Menu id="ME_Direct_Parameters">
+						<Name textId="TI_ME_Direct_Parameters" />
+						<VariableRef variableId="V_DemoParamOutput" />
+						<VariableRef variableId="V_DemoParamInput" />
+					</Menu>
+				</MenuCollection>
+				<!--Menu declarations  -->
+				<!--ObservationRoleMenuSet is mandatory ! -->
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="ME_Ident" />
+					<ParameterMenu menuId="ME_Param" />
+				</ObserverRoleMenuSet>
+				<!--	MaintenanceRoleMenuSet(m) -->
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="ME_Ident" />
+					<ParameterMenu menuId="ME_Param" />
+				</MaintenanceRoleMenuSet>
+				<!--SpecialistRoleMenuSet(m) -->
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="ME_Ident" />
+					<ParameterMenu menuId="ME_Param" />
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+			
+			
+			
+	</DeviceFunction>
+  </ProfileBody>
+	
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+		<TransportLayers>
+			<!--Minimal cycle time of the slave; shown in 1 us -->
+			<PhysicalLayer bitrate="COM2" minCycleTime="4000" sioSupported="true" mSequenceCapability="09">
+        <Connection xsi:type="CableConnectionT" connectionSymbol="HallerErne-IOLink-con-pic.png"> <!-- CableConnectionT -->
+          <ProductRef productId="IOLink"/>
+<!--		  
+          <ProductRef productId="VisuBox 5"/>
+          <ProductRef productId="VisuBox 10"/>
+-->		  
+          <Wire1 color="BN" function="L+"><Name textId="TN_Pin1"/></Wire1>
+          <Wire2 color="BK" function="C/Q"><Name textId="TN_Pin2"/></Wire2>
+          <Wire3 color="BU" function="L-"><Name textId="TN_Pin3"/></Wire3>
+				</Connection>
+			</PhysicalLayer>
+		</TransportLayers>
+		<Test>
+			<!-- Test Values defined in dataobjects.h -->
+			<Config1 index="128" testValue="0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a" />
+			<Config2 index="256" testValue="0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a" />
+			<Config3 index="129" testValue="0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a,0x2a" />
+			<Config7 index="130">
+				<EventTrigger appearValue="01" disappearValue="02" />
+				<EventTrigger appearValue="11" disappearValue="12" />
+			</Config7>
+		</Test>
+	</CommNetworkProfile>
+
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_DeviceName" value="IOLink"/>
+      <Text id="TI_VendorText" value="Haller+Erne"/>
+      <Text id="TI_VendorUrl" value="http://www.Haller-Erne.de"/>
+      <Text id="TI_DeviceFamily" value="Tightening System"/>
+      <Text id="TI_Name" value="IOLink"/>	
+      <Text id="TI_Description" value="IOLink MSTKN"/>
+	  <Text id="TI_ProcessDataIn" value="Process Data In" />
+	  <Text id="TI_ProcessDataOut" value="Process Data Out" />
+	  <Text id="TI_ME_Direct_Parameters" value="Direct parameters" />
+	  <Text id="TN_DemoParamOutput" value="Mirror Output" />
+	  <Text id="TN_DemoParamInput" value="Mirror Input" />
+ 
+	  
+ <!--     <Text id="TN_SV_X_PDout_Control_low" value="Off"/> -->	
+ <!--  <Text id="TN_SV_X_PDout_Control_high" value="On"/> -->	
+      <Text id="TN_Pin1" value="Pin 1: L+ (+24 V)"/>
+      <Text id="TN_Pin2" value="Pin 2: C/Q"/>
+      <Text id="TN_Pin3" value="Pin 3: L- (0 V)"/>
+
+
+	  
+      <Text id="TN_PI_X_PDin_IN_01" value="IN_01"/>
+      <Text id="TD_PI_X_PDin_IN_01" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_02" value="IN_02"/>
+      <Text id="TD_PI_X_PDin_IN_02" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_03" value="IN_03"/>
+      <Text id="TD_PI_X_PDin_IN_03" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_04" value="IN_04"/>
+      <Text id="TD_PI_X_PDin_IN_04" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_05" value="IN_05"/>
+      <Text id="TD_PI_X_PDin_IN_05" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_06" value="IN_06"/>
+      <Text id="TD_PI_X_PDin_IN_06" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_07" value="IN_07"/>
+      <Text id="TD_PI_X_PDin_IN_07" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_08" value="IN_08"/>
+      <Text id="TD_PI_X_PDin_IN_08" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_09" value="IN_09"/>
+      <Text id="TD_PI_X_PDin_IN_09" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_10" value="IN_10"/>
+      <Text id="TD_PI_X_PDin_IN_10" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_11" value="IN_11"/>
+      <Text id="TD_PI_X_PDin_IN_11" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_12" value="IN_12"/>
+      <Text id="TD_PI_X_PDin_IN_12" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_13" value="IN_13"/>
+      <Text id="TD_PI_X_PDin_IN_13" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_14" value="IN_14"/>
+      <Text id="TD_PI_X_PDin_IN_14" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_15" value="IN_15"/>
+      <Text id="TD_PI_X_PDin_IN_15" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_16" value="IN_16"/>
+      <Text id="TD_PI_X_PDin_IN_16" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_17" value="IN_17"/>
+      <Text id="TD_PI_X_PDin_IN_17" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_18" value="IN_18"/>
+      <Text id="TD_PI_X_PDin_IN_18" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_19" value="IN_19"/>
+      <Text id="TD_PI_X_PDin_IN_19" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_20" value="IN_20"/>
+      <Text id="TD_PI_X_PDin_IN_20" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_21" value="IN_21"/>
+      <Text id="TD_PI_X_PDin_IN_21" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_22" value="IN_22"/>
+      <Text id="TD_PI_X_PDin_IN_22" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_23" value="IN_23"/>
+      <Text id="TD_PI_X_PDin_IN_23" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_24" value="IN_24"/>
+      <Text id="TD_PI_X_PDin_IN_24" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_25" value="IN_25"/>
+      <Text id="TD_PI_X_PDin_IN_25" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_26" value="IN_26"/>
+      <Text id="TD_PI_X_PDin_IN_26" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_27" value="IN_27"/>
+      <Text id="TD_PI_X_PDin_IN_27" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_28" value="IN_28"/>
+      <Text id="TD_PI_X_PDin_IN_28" value="The bit is true."/>
+      <Text id="TN_PI_X_PDin_IN_29" value="IN_29"/>
+      <Text id="TD_PI_X_PDin_IN_29" value="The bit is true."/>
+	  <Text id="TN_PI_X_PDin_IN_30" value="IN_30"/>
+      <Text id="TD_PI_X_PDin_IN_30" value="The bit is true."/> 
+	  <Text id="TN_PI_X_PDin_IN_31" value="IN_31"/>
+      <Text id="TD_PI_X_PDin_IN_31" value="The bit is true."/> 
+	  <Text id="TN_PI_X_PDin_IN_32" value="IN_32"/>
+      <Text id="TD_PI_X_PDin_IN_32" value="The bit is true."/>
+
+
+      <Text id="TN_PO_X_PDout_OUT_01" value="OUT_01"/>
+      <Text id="TD_PO_X_PDout_OUT_01" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_02" value="OUT_02"/>
+      <Text id="TD_PO_X_PDout_OUT_02" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_03" value="OUT_03"/>
+      <Text id="TD_PO_X_PDout_OUT_03" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_04" value="OUT_04"/>
+      <Text id="TD_PO_X_PDout_OUT_04" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_05" value="OUT_05"/>
+      <Text id="TD_PO_X_PDout_OUT_05" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_06" value="OUT_06"/>
+      <Text id="TD_PO_X_PDout_OUT_06" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_07" value="OUT_07"/>
+      <Text id="TD_PO_X_PDout_OUT_07" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_08" value="OUT_08"/>
+      <Text id="TD_PO_X_PDout_OUT_08" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_09" value="OUT_09"/>
+      <Text id="TD_PO_X_PDout_OUT_09" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_10" value="OUT_10"/>
+      <Text id="TD_PO_X_PDout_OUT_10" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_11" value="OUT_11"/>
+      <Text id="TD_PO_X_PDout_OUT_11" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_12" value="OUT_12"/>
+      <Text id="TD_PO_X_PDout_OUT_12" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_13" value="OUT_13"/>
+      <Text id="TD_PO_X_PDout_OUT_13" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_14" value="OUT_14"/>
+      <Text id="TD_PO_X_PDout_OUT_14" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_15" value="OUT_15"/>
+      <Text id="TD_PO_X_PDout_OUT_15" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_16" value="OUT_16"/>
+      <Text id="TD_PO_X_PDout_OUT_16" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_17" value="OUT_17"/>
+      <Text id="TD_PO_X_PDout_OUT_17" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_18" value="OUT_18"/>
+      <Text id="TD_PO_X_PDout_OUT_18" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_19" value="OUT_19"/>
+      <Text id="TD_PO_X_PDout_OUT_19" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_20" value="OUT_20"/>
+      <Text id="TD_PO_X_PDout_OUT_20" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_21" value="OUT_21"/>
+      <Text id="TD_PO_X_PDout_OUT_21" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_22" value="OUT_22"/>
+      <Text id="TD_PO_X_PDout_OUT_22" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_23" value="OUT_23"/>
+      <Text id="TD_PO_X_PDout_OUT_23" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_24" value="OUT_24"/>
+      <Text id="TD_PO_X_PDout_OUT_24" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_25" value="OUT_25"/>
+      <Text id="TD_PO_X_PDout_OUT_25" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_26" value="OUT_26"/>
+      <Text id="TD_PO_X_PDout_OUT_26" value="24V output."/>
+	  <Text id="TN_PO_X_PDout_OUT_27" value="OUT_27"/>
+      <Text id="TD_PO_X_PDout_OUT_27" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_28" value="OUT_28"/>
+      <Text id="TD_PO_X_PDout_OUT_28" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_29" value="OUT_29"/>
+      <Text id="TD_PO_X_PDout_OUT_29" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_30" value="OUT_30"/>
+      <Text id="TD_PO_X_PDout_OUT_30" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_31" value="OUT_31"/>
+      <Text id="TD_PO_X_PDout_OUT_31" value="24V output."/>
+      <Text id="TN_PO_X_PDout_OUT_32" value="OUT_32"/>
+      <Text id="TD_PO_X_PDout_OUT_32" value="24V output."/>
+	  
+	  
+    </PrimaryLanguage>
+
+  </ExternalTextCollection>
+  <Stamp crc="2605208776"><Checker name="IODD-Checker V1.1.9" version="V1.1.9.0"/></Stamp>
+</IODevice> 
